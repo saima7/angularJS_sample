@@ -82,8 +82,14 @@ var app = angular
              })  
              .controller("customersCtrl", function ($scope, $http) {
               $scope.message = "customer";
-                 $http.get("https://www.w3schools.com/angular/customers.php")
-                                        .then(function (response) {
-                                            $scope.myData = response.data.records;
-                                        });
+              service($scope, $http);
              });
+
+
+             
+             function service($scope, $http){
+              $http.get("https://www.w3schools.com/angular/customers.php")
+              .then(function (response) {
+                  $scope.myData = response.data.records;
+              });
+             }
